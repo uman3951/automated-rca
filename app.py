@@ -11,36 +11,36 @@ from sklearn.decomposition import LatentDirichletAllocation
 
 app = Flask(__name__)
 
-# Load trained model and vectorizer
-vectorizer = joblib.load("count_vectorizer.pkl")
-lda_model = joblib.load("lda_model.pkl")
-lda_tuned_model = joblib.load("lda_model_tuned.pkl")  # Load the tuned LDA model
+# # Load trained model and vectorizer
+# vectorizer = joblib.load("count_vectorizer.pkl")
+# lda_model = joblib.load("lda_model.pkl")
+# lda_tuned_model = joblib.load("lda_model_tuned.pkl")  # Load the tuned LDA model
 
-INPUT_DIR = "logs"  # Directory containing log files
-PROCESSED_TRAINING_DATA = "processed_traning_data.json"
+# INPUT_DIR = "logs"  # Directory containing log files
+# PROCESSED_TRAINING_DATA = "processed_traning_data.json"
 
-# Paths for saved models
-VECTORIZER_PATH = "count_vectorizer.pkl"
-LDA_MODEL_PATH = "lda_model.pkl"
-LDA_TUNED_MODEL_PATH = 'lda_model_tuned.pkl'
+# # Paths for saved models
+# VECTORIZER_PATH = "count_vectorizer.pkl"
+# LDA_MODEL_PATH = "lda_model.pkl"
+# LDA_TUNED_MODEL_PATH = 'lda_model_tuned.pkl'
 
-#Training Data set Path
-TRAINING_DATA_PATH = "processed_traning_data.json"
+# #Training Data set Path
+# TRAINING_DATA_PATH = "processed_traning_data.json"
 
-# Topic-to-root cause mapping
-topic_to_root_cause = {}
+# # Topic-to-root cause mapping
+# topic_to_root_cause = {}
 
-# Read the JSON file and extract the "root_cause" values
-with open('processed_traning_data.json', 'r') as file:
-    test_data_with_root_cause = json.load(file)
+# # Read the JSON file and extract the "root_cause" values
+# with open('processed_traning_data.json', 'r') as file:
+#     test_data_with_root_cause = json.load(file)
 
-# Extract unique root causes from the file
-extracted_root_causes = {entry["root_cause"] for entry in test_data_with_root_cause if "root_cause" in entry}
+# # Extract unique root causes from the file
+# extracted_root_causes = {entry["root_cause"] for entry in test_data_with_root_cause if "root_cause" in entry}
 
-# Merge extracted root causes into topic_to_root_cause mapping
-for idx, root_cause in enumerate(extracted_root_causes, start=len(topic_to_root_cause)):
-    if root_cause not in topic_to_root_cause.values():
-        topic_to_root_cause[idx] = root_cause
+# # Merge extracted root causes into topic_to_root_cause mapping
+# for idx, root_cause in enumerate(extracted_root_causes, start=len(topic_to_root_cause)):
+#     if root_cause not in topic_to_root_cause.values():
+#         topic_to_root_cause[idx] = root_cause
 
 @app.route('/')
 def home():
@@ -555,52 +555,52 @@ def favicon():
 
 # ######################### Model Training #############
 
-def train_model(model_type="lda"):
-    """Train the LDA model with training data."""
-    # Load training data
-    if not os.path.exists(TRAINING_DATA_PATH):
-        return "Training data file not found.", 400
+# def train_model(model_type="lda"):
+#     """Train the LDA model with training data."""
+#     # Load training data
+#     if not os.path.exists(TRAINING_DATA_PATH):
+#         return "Training data file not found.", 400
     
-    with open(TRAINING_DATA_PATH, 'r') as file:
-        training_data = json.load(file)
+#     with open(TRAINING_DATA_PATH, 'r') as file:
+#         training_data = json.load(file)
     
-    training_df = pd.DataFrame(training_data)
+#     training_df = pd.DataFrame(training_data)
     
-    if 'message' not in training_df.columns or 'root_cause' not in training_df.columns:
-        return "Missing required columns in training data.", 400
+#     if 'message' not in training_df.columns or 'root_cause' not in training_df.columns:
+#         return "Missing required columns in training data.", 400
     
-    training_df['root_cause'] = training_df['root_cause'].fillna("Unknown Issue")
-    unique_root_causes = training_df['root_cause'].unique()
-    root_cause_mapping = {i: cause for i, cause in enumerate(unique_root_causes)}
+#     training_df['root_cause'] = training_df['root_cause'].fillna("Unknown Issue")
+#     unique_root_causes = training_df['root_cause'].unique()
+#     root_cause_mapping = {i: cause for i, cause in enumerate(unique_root_causes)}
     
-    vectorizer = CountVectorizer(max_features=1000, stop_words='english')
-    X_features = vectorizer.fit_transform(training_df['message'])
+#     vectorizer = CountVectorizer(max_features=1000, stop_words='english')
+#     X_features = vectorizer.fit_transform(training_df['message'])
     
-    # Initialize and fit the model based on the model_type
-    lda_model = LatentDirichletAllocation(n_components=5, random_state=42)
-    lda_model.fit(X_features)
+#     # Initialize and fit the model based on the model_type
+#     lda_model = LatentDirichletAllocation(n_components=5, random_state=42)
+#     lda_model.fit(X_features)
     
-    # Save the vectorizer
-    joblib.dump(vectorizer, VECTORIZER_PATH)
+#     # Save the vectorizer
+#     joblib.dump(vectorizer, VECTORIZER_PATH)
     
-    # Save the appropriate LDA model based on the model_type
-    if model_type == 'lda_tuned':
-        joblib.dump(lda_model, LDA_TUNED_MODEL_PATH)
-    else:
-        joblib.dump(lda_model, LDA_MODEL_PATH)
+#     # Save the appropriate LDA model based on the model_type
+#     if model_type == 'lda_tuned':
+#         joblib.dump(lda_model, LDA_TUNED_MODEL_PATH)
+#     else:
+#         joblib.dump(lda_model, LDA_MODEL_PATH)
     
-    return "Model training complete. Models saved.", 200
+#     return "Model training complete. Models saved.", 200
 
-@app.route('/model_train', methods=['POST'])
-def train():
-    # Get model_type from request parameters
-    model_type = request.args.get('model_type', default='lda', type=str)
+# @app.route('/model_train', methods=['POST'])
+# def train():
+#     # Get model_type from request parameters
+#     model_type = request.args.get('model_type', default='lda', type=str)
     
-    if model_type not in ['lda', 'lda_tuned']:
-        return jsonify({"error": "Invalid model type. Choose 'lda' or 'lda_tuned'."}), 400
+#     if model_type not in ['lda', 'lda_tuned']:
+#         return jsonify({"error": "Invalid model type. Choose 'lda' or 'lda_tuned'."}), 400
     
-    message, status = train_model(model_type)
-    return jsonify({"message": message}), status
+#     message, status = train_model(model_type)
+#     return jsonify({"message": message}), status
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
