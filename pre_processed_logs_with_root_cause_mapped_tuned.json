@@ -1,0 +1,492 @@
+[
+    {
+        "message": "INFO exited: selenium-node (exit status 0; expected)",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN received SIGINT indicating exit request",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "CRIT Server 'unix_http_server' running without any HTTP authentication checking",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "INFO [NodeServer.lambda$createHandlers$3] - Shutting down",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "INFO [LocalNode.drain] - Firing node drain complete message",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN received SIGTERM indicating exit request",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Connection to database lost, attempting to reconnect...",
+        "root_cause": "Database connection issue",
+        "topic_index": 6
+    },
+    {
+        "message": "INFO stopped: vnc (terminated by SIGTERM)",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "CRIT Memory limit exceeded, process killed",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "ERROR Failed to fetch data from API - timeout after 30s",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO waiting for xvfb, vnc, novnc to die",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN Disk space usage exceeded 90%",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "INFO exited: selenium-node (exit status 0; expected)",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN received SIGINT indicating exit request",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "CRIT Server 'unix_http_server' running without any HTTP authentication checking",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "INFO [NodeServer.lambda$createHandlers$3] - Shutting down",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "INFO [LocalNode.drain] - Firing node drain complete message",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN received SIGTERM indicating exit request",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Connection to database lost, attempting to reconnect...",
+        "root_cause": "Database connection issue",
+        "topic_index": 6
+    },
+    {
+        "message": "INFO stopped: vnc (terminated by SIGTERM)",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "CRIT Memory limit exceeded, process killed",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "ERROR Failed to fetch data from API - timeout after 30s",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO waiting for xvfb, vnc, novnc to die",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN Disk space usage exceeded 90%",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "ERROR Unable to resolve DNS for service 'selenium-hub'",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "CRIT Process 'webdriver' exited unexpectedly",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN High CPU usage detected (95%)",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "ERROR Network unreachable - check internet connection",
+        "root_cause": "Database connection issue",
+        "topic_index": 6
+    },
+    {
+        "message": "INFO Selenium Grid started successfully on port 4444",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN Unresponsive script detected, restarting process",
+        "root_cause": "VNC service shutdown",
+        "topic_index": 7
+    },
+    {
+        "message": "ERROR Authentication failed for user 'admin'",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "CRIT Kubernetes pod 'selenium-node' restarted due to crash",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "INFO Download complete: 'test-results.zip'",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "ERROR SSL certificate verification failed",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "WARN Session timeout exceeded, terminating connection",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "INFO User 'qa-engineer' logged in successfully",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "CRIT Kernel panic - system rebooting",
+        "root_cause": "API timeout",
+        "topic_index": 9
+    },
+    {
+        "message": "ERROR WebSocket connection to 'browserstack' lost",
+        "root_cause": "Pod termination",
+        "topic_index": 5
+    },
+    {
+        "message": "INFO New Selenium session started: Session ID 12345",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN Low available memory: 512MB remaining",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "INFO Uploaded file 'appium-test.apk' to S3 successfully",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "CRIT Docker container 'chrome-node' restarted due to failure",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Unable to allocate IP address from DHCP",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "INFO Kubernetes deployment 'selenium-grid' updated successfully",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN Browser instance unresponsive, force quitting",
+        "root_cause": "VNC service shutdown",
+        "topic_index": 7
+    },
+    {
+        "message": "INFO Test execution completed: 50 passed, 2 failed",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO exited: selenium-node (exit status 0; expected)",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN received SIGINT indicating exit request",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "CRIT Server 'unix_http_server' running without any HTTP authentication checking",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "ERROR Connection to database lost, attempting to reconnect...",
+        "root_cause": "Database connection issue",
+        "topic_index": 6
+    },
+    {
+        "message": "INFO stopped: vnc (terminated by SIGTERM)",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "ERROR Failed to fetch data from API - timeout after 30s",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "WARN Disk space usage exceeded 90%",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "ERROR Unable to resolve DNS for service 'selenium-hub'",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "CRIT Process 'webdriver' exited unexpectedly",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "INFO Selenium Grid started successfully on port 4444",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "ERROR Authentication failed for user 'admin'",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "CRIT Kubernetes pod 'selenium-node' restarted due to crash",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "INFO Download complete: 'test-results.zip'",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "ERROR SSL certificate verification failed",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "INFO User 'qa-engineer' logged in successfully",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "CRIT Kernel panic - system rebooting",
+        "root_cause": "API timeout",
+        "topic_index": 9
+    },
+    {
+        "message": "ERROR WebSocket connection to 'browserstack' lost",
+        "root_cause": "Pod termination",
+        "topic_index": 5
+    },
+    {
+        "message": "INFO New Selenium session started: Session ID 12345",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "INFO Uploaded file 'appium-test.apk' to S3 successfully",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "CRIT Docker container 'chrome-node' restarted due to failure",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Unable to allocate IP address from DHCP",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "INFO Kubernetes deployment 'selenium-grid' updated successfully",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN Browser instance unresponsive, force quitting",
+        "root_cause": "VNC service shutdown",
+        "topic_index": 7
+    },
+    {
+        "message": "INFO Test execution completed: 50 passed, 2 failed",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "CRIT CPU temperature exceeded safe threshold, shutting down",
+        "root_cause": "VNC service shutdown",
+        "topic_index": 7
+    },
+    {
+        "message": "WARN Proxy server connection unstable",
+        "root_cause": "Database connection issue",
+        "topic_index": 6
+    },
+    {
+        "message": "ERROR Appium driver initialization failed",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO Node successfully registered with Selenium Grid",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN High memory usage detected: 95%",
+        "root_cause": "Normal termination",
+        "topic_index": 0
+    },
+    {
+        "message": "ERROR Failed to upload log file to cloud storage",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "INFO Node 'edge-browser' added to Selenium Grid",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "CRIT Application crashed due to segmentation fault",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "ERROR Test execution halted due to missing test data",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "WARN Kubernetes pod 'selenium-hub' in CrashLoopBackOff",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Selenium session timeout reached, terminating test",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO Kubernetes service 'selenium-grid' exposed on port 4444",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "CRIT Failed to allocate enough CPU resources",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "WARN Configuration file 'grid-config.yml' missing required fields",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Unable to connect to Appium server",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "INFO File download started: 'test-artifacts.zip'",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "WARN Browser process exceeded execution limit, terminating",
+        "root_cause": "VNC service shutdown",
+        "topic_index": 7
+    },
+    {
+        "message": "CRIT Docker image 'selenium/hub' not found in registry",
+        "root_cause": "Authentication failure",
+        "topic_index": 2
+    },
+    {
+        "message": "ERROR Database migration failed",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO Test report generated successfully",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "WARN DNS lookup delay detected",
+        "root_cause": "Node drain complete",
+        "topic_index": 4
+    },
+    {
+        "message": "INFO Node 'firefox-node' started successfully",
+        "root_cause": "Node shutdown initiated",
+        "topic_index": 3
+    },
+    {
+        "message": "ERROR Network bandwidth exceeded limit",
+        "root_cause": "Pod termination",
+        "topic_index": 5
+    },
+    {
+        "message": "CRIT Failed to mount Kubernetes persistent volume",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    },
+    {
+        "message": "INFO Kubernetes cluster scaling up due to demand",
+        "root_cause": "Out of memory (OOM)",
+        "topic_index": 8
+    },
+    {
+        "message": "WARN Docker container restart limit reached",
+        "root_cause": "VNC service shutdown",
+        "topic_index": 7
+    },
+    {
+        "message": "ERROR Certificate expired, TLS connection rejected",
+        "root_cause": "Database connection issue",
+        "topic_index": 6
+    },
+    {
+        "message": "INFO Appium test execution completed successfully",
+        "root_cause": "Manual interruption",
+        "topic_index": 1
+    }
+]

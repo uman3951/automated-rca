@@ -1,0 +1,92 @@
+[
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "06:55:04.986 INFO [LocalNode.drain] - Firing node drain complete message",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "06:55:05.990 INFO [NodeServer.lambda$createHandlers$3] - Shutting down",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "2024-05-16 06:55:06,322 INFO exited: selenium-node (exit status 0; expected)",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "WARN",
+        "message": "2024-05-16 06:55:06,323 WARN received SIGINT indicating exit request",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "2024-05-16 06:55:06,323 INFO waiting for xvfb, vnc, novnc to die",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "UNKNOWN",
+        "message": "Trapped SIGTERM/SIGINT/x so shutting down supervisord...",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "WARN",
+        "message": "2024-05-16 06:55:08,326 WARN received SIGTERM indicating exit request",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "2024-05-16 06:55:09,328 INFO stopped: novnc (terminated by SIGTERM)",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "2024-05-16 06:55:09,328 INFO waiting for xvfb, vnc to die",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    },
+    {
+        "timestamp": null,
+        "log_level": "INFO",
+        "message": "2024-05-16 06:55:10,329 INFO stopped: vnc (terminated by SIGTERM)",
+        "root_cause": "",
+        "container_name": "selenium-node-chrome",
+        "namespace": "qlabv2",
+        "pod_name": "selenium-node-chrome-21c68734188f43db9dfc6d8a3aa1fdc0"
+    }
+]

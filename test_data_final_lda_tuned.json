@@ -1,0 +1,6 @@
+[
+    {
+        "message": "2024-05-16 06:55:09,328 INFO stopped: novnc (terminated by SIGTERM)",
+        "lda_tuned_root_cause": "Pod instability"
+    }
+]
