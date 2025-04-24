@@ -51,7 +51,7 @@ def favicon():
     return '', 204
 
 
-app.route('/predict_lda', methods=['POST'])
+@app.route('/predict_lda', methods=['POST'])
 def predict_root_cause():
     try:
         input_data = request.get_json()
