@@ -1,19 +1,16 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, jsonify, request
 import json
 import pandas as pd
-import joblib
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import re
+import requests
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+import joblib
 
 app = Flask(__name__)
 
 # # Load trained model and vectorizer
 # vectorizer = joblib.load("count_vectorizer.pkl")
-# lda_model = joblib.load("lda_model.pkl")
+# #lda_model = joblib.load("lda_model.pkl")
 # lda_tuned_model = joblib.load("lda_model_tuned.pkl")  # Load the tuned LDA model
 
 # INPUT_DIR = "logs"  # Directory containing log files
@@ -21,7 +18,7 @@ app = Flask(__name__)
 
 # # Paths for saved models
 # VECTORIZER_PATH = "count_vectorizer.pkl"
-# LDA_MODEL_PATH = "lda_model.pkl"
+# # LDA_MODEL_PATH = "lda_model.pkl"
 # LDA_TUNED_MODEL_PATH = 'lda_model_tuned.pkl'
 
 # #Training Data set Path
@@ -39,7 +36,7 @@ app = Flask(__name__)
 
 # # Merge extracted root causes into topic_to_root_cause mapping
 # for idx, root_cause in enumerate(extracted_root_causes, start=len(topic_to_root_cause)):
-#     if root_cause not in topic_to_root_cause.values():
+#     if root_cause not in topic_to_root_cause.values() :
 #         topic_to_root_cause[idx] = root_cause
 
 @app.route('/')
@@ -49,6 +46,73 @@ def home():
 @app.route('/favicon.ico')
 def favicon():
     return '', 204
+
+# Load model and vectorizer once
+vectorizer = joblib.load("count_vectorizer.pkl")
+lda_model = joblib.load("lda_model_tuned.pkl")
+
+def load_topic_mapping_from_s3_public(url):
+    response = requests.get(url)
+    if response.status_code != 200:
+        raise Exception(f"Failed to fetch JSON from {url}, status code: {response.status_code}")
+    topic_map = json.loads(response.text)
+    return {int(k): v for k, v in topic_map.items()}
+
+def upload_file_via_presigned_url(local_file_path, presigned_url):
+    with open(local_file_path, 'rb') as file_data:
+        response = requests.put(presigned_url, data=file_data)
+    if response.status_code == 200:
+        print("File uploaded successfully.")
+        return True
+    else:
+        print(f"Upload failed: {response.status_code}, {response.text}")
+        return False
+
+@app.route("/run_rca", methods=["POST"])
+def run_rca():
+    # Load test data
+    try:
+        with open('pre_process_test_data.json', 'r') as file:
+            test_data = json.load(file)
+    except Exception as e:
+        return jsonify({"error": f"Failed to read test data: {str(e)}"}), 500
+
+    test_df = pd.DataFrame(test_data)
+    if 'message' not in test_df.columns:
+        return jsonify({"error": "'message' column missing in input"}), 400
+
+    # Predict root cause
+    X_test_features = vectorizer.transform(test_df['message'])
+    test_df['root_cause'] = lda_model.transform(X_test_features).argmax(axis=1)
+
+    # Load topic mapping from S3
+    try:
+        topic_to_root_cause = load_topic_mapping_from_s3_public(
+            "https://udaraquest1.s3.amazonaws.com/topic_to_root_cause.json"
+        )
+    except Exception as e:
+        return jsonify({"error": f"Failed to load topic mapping: {str(e)}"}), 500
+
+    test_df['root_cause'] = test_df['root_cause'].map(topic_to_root_cause).fillna('nan')
+
+    # Save locally
+    local_output_file = 'test_data_with_root_cause.json'
+    with open(local_output_file, 'w') as file:
+        json.dump(test_df.to_dict(orient='records'), file, indent=4)
+
+    # Upload using provided presigned URL
+    presigned_url = request.json.get("presigned_url")
+    if not presigned_url:
+        return jsonify({"error": "Missing presigned_url in request body"}), 400
+
+    upload_success = upload_file_via_presigned_url(local_output_file, presigned_url)
+    if not upload_success:
+        return jsonify({"error": "File upload failed"}), 500
+
+    return jsonify({
+        "message": "Root cause prediction complete and file uploaded",
+        "root_causes": test_df['root_cause'].unique().tolist()
+    })
 
 
 # @app.route('/predict_lda', methods=['POST'])
