@@ -71,11 +71,20 @@ def upload_file_via_presigned_url(local_file_path, presigned_url):
 @app.route("/run_rca", methods=["POST"])
 def run_rca():
     # Load test data
+    # try:
+    #     with open('pre_process_test_data.json', 'r') as file:
+    #         test_data = json.load(file)
+    # except Exception as e:
+    #     return jsonify({"error": f"Failed to read test data: {str(e)}"}), 500
+    
     try:
-        with open('pre_process_test_data.json', 'r') as file:
-            test_data = json.load(file)
+        s3_url = "https://udaraquest1.s3.us-east-1.amazonaws.com/pre_process_test_data.json"
+        response = requests.get(s3_url)
+        if response.status_code != 200:
+            return jsonify({"error": f"Failed to fetch test data from S3: {response.status_code}"}), 500
+        test_data = response.json()
     except Exception as e:
-        return jsonify({"error": f"Failed to read test data: {str(e)}"}), 500
+        return jsonify({"error": f"Failed to read test data from S3: {str(e)}"}), 500
 
     test_df = pd.DataFrame(test_data)
     if 'message' not in test_df.columns:
@@ -113,6 +122,7 @@ def run_rca():
         "message": "Root cause prediction complete and file uploaded",
         "root_causes": test_df['root_cause'].unique().tolist()
     })
+
 
 
 # @app.route('/predict_lda', methods=['POST'])
