@@ -4,10 +4,19 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.model_selection import GridSearchCV
 import joblib
+import requests
+import json
 
 # Load the training data
-with open('processed_traning_data.json', 'r') as file:
-    training_data = json.load(file)
+s3_url = 'https://udaraquest1.s3.us-east-1.amazonaws.com/processed_traning_data.json'
+
+response = requests.get(s3_url, headers={'Cache-Control': 'no-cache'})
+
+if response.status_code == 200:
+    training_data = response.json()  # Load JSON directly
+    print("Training data loaded successfully")
+else:
+    print(f"Failed to download file: {response.status_code}")
 
 # Convert the training data into a DataFrame for processing
 training_df = pd.DataFrame(training_data)
