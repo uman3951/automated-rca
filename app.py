@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,Response
 import json
 import pandas as pd
 import requests
@@ -122,6 +122,28 @@ def run_rca():
         "message": "Root cause prediction complete and file uploaded",
         "root_causes": test_df['root_cause'].unique().tolist()
     })
+
+@app.route('/download_root_cause', methods=['GET'])
+def download_root_cause_file():
+    s3_url = 'https://udaraquest1.s3.us-east-1.amazonaws.com/Results/topic_to_root_cause.json'
+    
+    try:
+        headers = {
+            'Cache-Control': 'no-cache'
+        }
+        response = requests.get(s3_url, headers=headers)
+
+        if response.status_code == 200:
+            return Response(
+                response.content,
+                content_type='application/json',
+                headers={'Content-Disposition': 'attachment; filename=topic_to_root_cause.json'}
+            )
+        else:
+            return jsonify({"error": f"Failed to fetch file from S3: {response.status_code}"}), response.status_code
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 

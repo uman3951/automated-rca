@@ -76,6 +76,8 @@ else:
 # Assign topics (or root causes) to the training data using the best tuned model
 topic_probabilities = best_lda_model.transform(X_features)
 training_df['topic_index'] = topic_probabilities.argmax(axis=1)
+
+
 training_df['root_cause'] = training_df['topic_index'].map(root_cause_mapping)
 
 # Optional: Drop the topic index column if not needed
@@ -86,3 +88,4 @@ with open('pre_processed_logs_with_root_cause_mapped_tuned.json', 'w') as file:
     json.dump(training_df.to_dict(orient='records'), file, indent=4)
 
 print("Processed training data with root causes saved to 'pre_processed_logs_with_root_cause_mapped_tuned.json'.")
+
